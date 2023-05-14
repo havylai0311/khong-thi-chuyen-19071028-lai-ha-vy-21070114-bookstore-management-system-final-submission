@@ -1,0 +1,37 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Reader</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to readers_path, class: button_class(theme: "transparent") do %>
+      All Readers
+      <% end %>
+      <%= link_to edit_reader_path(@reader), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Reader name:</p>
+        <p><%= @reader.reader_name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Book name:</p>
+        <p><%= @reader.book_name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Purchased date:</p>
+        <p><%= @reader.purchased_date %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Reader email:</p>
+        <p><%= @reader.reader_email %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Phone number:</p>
+        <p><%= @reader.phone_number %></p>
+      </li>
+  </ul>
+</div>

@@ -1,0 +1,42 @@
+<%= form_with(model: reader) do |form| %>
+<% if reader.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(reader.errors.count, "error") %> prohibited this reader from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% reader.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :reader_name, class: label_class %>
+          <%= form.text_field :reader_name, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :book_name, class: label_class %>
+          <%= form.text_field :book_name, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :purchased_date, class: label_class %>
+          <%= form.date_field :purchased_date, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :reader_email, class: label_class %>
+          <%= form.text_field :reader_email, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :phone_number, class: label_class %>
+          <%= form.text_field :phone_number, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if reader.persisted? %>
+<%= link_to "Cancel", reader, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", readers_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>
